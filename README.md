@@ -10,7 +10,12 @@ TBD
 
 # Running the App Locally
 
-TBD
+- Ensure Node.js is installed on the machine (node v20.18.0 was used for development)
+- In the directory containing the package.json file enter the following commands into a terminal:
+  - npm install
+  - npm run dev
+- This will build and run the dev server
+- The terminal will display a link like `Local:http://localhost:5173/`. Click it to open the app.
 
 # Requirements
 
@@ -40,8 +45,8 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 ## Additional Requirements
 
 - [ ] Your app should be hosted on the internet where it can be visited and interacted with
-- [ ] You should include any necessary documentation to run your site locally
 - [ ] Please provide a link to your deployed site and your public code repository via Greenhouse.
+- [x] You should include any necessary documentation to run your site locally
 - [x] Your source code should be stored in a git repository and hosted on the internet (i.e. GitHub)
 
 > As for everything else, you have free rein, so get creative! We strongly encourage you to go beyond the minimum requirements to build something that showcases your strengths.
