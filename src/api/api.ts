@@ -15,7 +15,7 @@ const CREDENTIALS_INCLUDE: {
   credentials: "include",
 };
 
-// const METHOD_GET = "GET";
+const METHOD_GET = "GET";
 const METHOD_POST = "POST";
 
 /**
@@ -49,6 +49,38 @@ export class Api {
   async logout() {
     const res = await fetch(`${HOST}/auth/logout`, {
       method: METHOD_POST,
+      ...CREDENTIALS_INCLUDE,
+    });
+
+    return res;
+  }
+
+  /**
+   * The maximum total number of dogs that will be matched by a single query is
+   * 10,000.
+   */
+  async searchDogs() {
+    let url = new URL(`${HOST}/dogs/search`);
+
+    const res = fetch(url, {
+      method: METHOD_GET,
+      ...CREDENTIALS_INCLUDE,
+    });
+
+    return res;
+  }
+
+  /**
+   * Gets the image location and detailed information about each dog
+   * @param body The body should be an array of no more than 100 dog IDs to
+   * fetch (no pun intended).
+   * @returns
+   */
+  async getDogDetails(body: string[]) {
+    const res = await fetch(`${HOST}/dogs`, {
+      headers: HEADER_CONTENT_TYPE_JSON,
+      method: METHOD_POST,
+      body: JSON.stringify(body),
       ...CREDENTIALS_INCLUDE,
     });
 
