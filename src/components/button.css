@@ -1,0 +1,53 @@
+:root {
+  --color-button-background: hsl(128, 19%, 25%);
+  --color-button-background-hover: hsl(128, 19%, 35%);
+  --color-button-background-active: hsl(128, 19%, 10%);
+  --color-button-text: hsl(60 90% 90%);
+
+  --color-button-background-primary: var(--color-brand-primary);
+  --color-button-background-primary-hover: hsl(60 69% 85%);
+}
+
+button {
+  cursor: pointer;
+
+  border-radius: var(--border-radius-32) var(--border-radius-8);
+  border: var(--border-weight-2) solid var(--color-transparent);
+  padding: var(--padding-4) var(--padding-8);
+
+  font-family: Roboto;
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-900);
+
+  background-color: var(--color-button-background);
+  color: var(--color-button-text);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-button-background-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-button-background-active);
+  }
+
+  &:disabled {
+    cursor: initial;
+    opacity: 0.33;
+  }
+}
+
+button.primary {
+  text-transform: uppercase;
+
+  background-color: var(--color-brand-primary);
+  color: var(--color-background-primary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-button-background-primary-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--color-button-background-active);
+    color: var(--color-brand-primary);
+  }
+}

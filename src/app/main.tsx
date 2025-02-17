@@ -5,6 +5,9 @@ import App from "./App.tsx";
 import "./main.css";
 import "./design-system.css";
 import "./reset.css";
+import "../components/button.css";
+import "../components/input.css";
+
 import "@fontsource/roboto/index.css";
 
 /**

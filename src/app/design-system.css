@@ -15,4 +15,40 @@ in here, just variables for consisten use elsewhere. */
   --font-size-32: 32px;
   --font-size-48: 48px;
   --font-size-64: 64px;
+
+  --font-weight-100: 100;
+  --font-weight-300: 300;
+  --font-weight-500: 500;
+  --font-weight-700: 700;
+  --font-weight-900: 900;
+
+  --padding-1: 1px;
+  --padding-2: 2px;
+  --padding-4: 4px;
+  --padding-8: 8px;
+  --padding-12: 12px;
+  --padding-16: 16px;
+  --padding-32: 32px;
+
+  --border-weight-1: 1px;
+  --border-weight-2: 2px;
+  --border-weight-4: 4px;
+  --border-weight-8: 8px;
+  --border-weight-16: 16px;
+  --border-weight-32: 32px;
+
+  --border-radius-0: 0px;
+  --border-radius-2: 2px;
+  --border-radius-4: 4px;
+  --border-radius-8: 8px;
+  --border-radius-16: 16px;
+  --border-radius-32: 32px;
+  /* Use this for non-ellipsoid max-rounded corners (e.g. pills). 100% doesn't
+  work, as it turns elements into ellipses. */
+  --border-radius-max: 9999px;
+
+  --box-shadow-solid-0: 0px 0px 0 0 #000000;
+  --box-shadow-solid-4: 4px 4px 0 0 #000000;
+  --box-shadow-solid-8: 8px 8px 0 0 #000000;
+  --box-shadow-solid-16: 16px 16px 0 0 #000000;
 }

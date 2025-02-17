@@ -1,0 +1,27 @@
+:root {
+  --color-input-background: hsl(128, 19%, 12.5%);
+}
+
+input {
+  flex: 1 1 auto;
+  width: 100%;
+
+  border: none;
+  border-radius: var(--border-radius-max);
+  padding: var(--padding-8) var(--padding-16);
+
+  font-size: var(--font-size-16);
+
+  background-color: var(--color-input-background);
+  color: var(--color-text);
+}
+
+label:has(input) {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+
+  input {
+    margin-left: var(--padding-16);
+  }
+}
