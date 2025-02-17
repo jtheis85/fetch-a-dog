@@ -66,3 +66,7 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 - [ ] Handle log out errors
 - [ ] Handle individual image loading state
+
+## Style
+
+- [ ] Scrollbar color

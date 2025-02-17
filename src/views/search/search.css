@@ -1,0 +1,14 @@
+:root {
+  --card-height: 300px;
+  --card-width: 400px;
+}
+
+.view-search {
+  section.results {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, var(--card-width));
+    padding: var(--padding-16) var(--padding-8);
+    gap: var(--padding-8);
+  }
+}

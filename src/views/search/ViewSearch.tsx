@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "wouter";
 import api from "../../api/api";
+import SearchResultsPage from "./SearchResultsPage";
+import { SearchResults } from "../../api/data";
 
-import DogCard from "../../components/dog-card/DogCard";
+import "./search.css";
 
 interface Props {}
 
@@ -13,6 +15,19 @@ interface Props {}
 const ViewSearch: React.FC<Props> = ({}) => {
   const [, navigate] = useLocation();
   const { t } = useTranslation();
+
+  const [currentPageDogIds, setCurrentPageDogIds] = useState<string[]>([]);
+
+  const searchDogs = async () => {
+    // TEMP: Just get the first page for now to test
+    const resSearch = await api.searchDogs();
+    const jsonSearch: SearchResults = await resSearch.json();
+    setCurrentPageDogIds(jsonSearch.resultIds);
+  };
+
+  useEffect(() => {
+    searchDogs();
+  }, []);
 
   return (
     <div className="view-search">
@@ -30,16 +45,7 @@ const ViewSearch: React.FC<Props> = ({}) => {
           {t("searchButtonSignOut")}
         </button>
       </header>
-      <DogCard
-        dog={{
-          img: "https://frontend-take-home.fetch.com/dog-images/n02085620-Chihuahua/n02085620_10976.jpg",
-          name: "Emory",
-          age: 10,
-          breed: "Chihuahua",
-          zip_code: "48333",
-          id: "VXGFTIcBOvEgQ5OCx40W",
-        }}
-      />
+      <SearchResultsPage dogIds={currentPageDogIds} />
     </div>
   );
 };
