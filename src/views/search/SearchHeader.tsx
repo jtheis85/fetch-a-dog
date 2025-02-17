@@ -36,7 +36,12 @@ const SearchHeader: React.FC<Props> = ({
           onClick={async () => {
             const res = await api.logout();
 
-            if (res.ok) {
+            // If we get a 401 back, the user's token has likely expired, and
+            // they need to log in again anyway.
+            // TODO: Consider unconditionally navigating to login to prevent
+            // cases where the user is stuck not being able to get there due
+            // to a server error that logging in again would fix.
+            if (res.ok || res.status === 401) {
               navigate("/login");
             }
           }}
