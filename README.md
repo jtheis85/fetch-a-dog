@@ -39,11 +39,13 @@ These are item that weren't explicitly in the requirements (see below), but I've
 
 - [ ] (FIX) Space between grid rows when results don't fill full page (e.g. zoom out)
 - [ ] (ERRORS) Handle API errors
+- [ ] (UX) Add filtering by age
 - [ ] (UX) Handle individual image loading state
 - [ ] (UX) Add first/last page buttons
 - [ ] (UX) Add numbered page buttons (similar to "< Goooooooogle >")
 - [ ] (UX) Add a page size option menu
 - [ ] (UX) Integrate search into querystring for link/shareability
+- [ ] (UX) Add logged in username to account menu
 
 # Requirements
 
