@@ -47,6 +47,7 @@ in here, just variables for consisten use elsewhere. */
   --border-radius-4: 4px;
   --border-radius-8: 8px;
   --border-radius-16: 16px;
+  --border-radius-24: 24px;
   --border-radius-32: 32px;
   /* Use this for non-ellipsoid max-rounded corners (e.g. pills). 100% doesn't
   work, as it turns elements into ellipses. */

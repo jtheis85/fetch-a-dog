@@ -10,6 +10,13 @@
     opacity: var(--opacity-50);
   }
 
+  @media (width < 600px) {
+    border-radius: var(--border-radius-24) var(--border-radius-8);
+    .caret {
+      display: none;
+    }
+  }
+
   .popover {
     position: absolute;
     z-index: 3;

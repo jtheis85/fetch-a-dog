@@ -62,7 +62,7 @@ const SearchHeader: React.FC<Props> = ({
           onClick={onRequestMatch}
         >
           <>
-            <FaHeart />{" "}
+            <FaHeart />
             <label className="responsive-wide">{t("searchButtonMatch")}</label>
             <label className="responsive-narrow">
               {t("searchButtonMatchNarrow")}
