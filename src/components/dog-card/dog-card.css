@@ -1,7 +1,6 @@
 .dog-card {
   --color-card-outline: white;
 
-  cursor: pointer;
   /* Prevents text selection on the card itself, which looks ugly and can happen
   if the user clicks too quickly */
   user-select: none;
@@ -18,12 +17,15 @@
   padding: var(--padding-8) var(--padding-16);
 
   background-size: cover;
+  /* Ensure that tall photos get vertically centered instead of cut off */
+  background-position: 50% 50%;
   color: var(--color-text-dark);
 
   transition: all 0.2s ease-out;
   outline: var(--border-weight-4) solid transparent;
 
-  &:hover {
+  &:not(.static):hover {
+    cursor: pointer;
     transform: scale(1.05);
     transition: all 0.2s ease-out, z-index 0s 0s;
     z-index: 1;
@@ -32,7 +34,8 @@
     box-shadow: var(--box-shadow-inner-vignette), var(--box-shadow-solid-8);
   }
 
-  &:active {
+  &:not(.static):active {
+    cursor: pointer;
     transform: scale(1.1);
     transition: all 0.2s ease-out, z-index 0s 0s;
     z-index: 1;
@@ -45,7 +48,7 @@
     outline: var(--border-weight-16) solid var(--color-card-outline);
   }
 
-  .icon-favorite {
+  &:not(.static) .icon-favorite {
     position: absolute;
     top: var(--padding-8);
     right: var(--padding-8);
@@ -53,7 +56,11 @@
     opacity: var(--opacity-0);
   }
 
-  &:hover .icon-favorite {
+  &.static .icon-favorite {
+    display: none;
+  }
+
+  &:not(.static):hover .icon-favorite {
     opacity: var(--opacity-67);
     color: var(--color-text);
   }
@@ -116,6 +123,10 @@
   }
 
   .dog-zip {
+    display: flex;
+    align-items: center;
+    gap: var(--padding-2);
+
     font-weight: var(--font-weight-900);
     font-size: var(--font-size-12);
     opacity: var(--opacity-50);

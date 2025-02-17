@@ -60,6 +60,33 @@
     );
   }
 
+  .dialog-dog-match {
+    border: none;
+    outline: var(--border-weight-4) solid var(--color-brand-primary);
+
+    .banner {
+      text-align: center;
+      margin: var(--padding-16) var(--padding-0);
+
+      font-family: var(--font-family-luckiest-guy);
+      font-size: var(--font-size-64);
+      font-weight: var(--font-weight-100);
+
+      background-color: var(--color-brand-primary);
+      color: var(--color-background-primary);
+    }
+
+    .dog-card {
+      /* Rounded at the bottom to hug the dialog border radius, flat at the top
+      for a nice line with the banner */
+      border-radius: var(--border-radius-0) var(--border-radius-0)
+        var(--border-radius-8) var(--border-radius-8);
+      /* Bigger photo to make the dialog pop */
+      height: calc(1.5 * var(--card-height));
+      width: calc(1.5 * var(--card-width));
+    }
+  }
+
   > footer {
     display: flex;
     align-items: center;

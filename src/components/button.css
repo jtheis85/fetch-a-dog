@@ -51,3 +51,13 @@ button.primary {
     color: var(--color-brand-primary);
   }
 }
+
+button.circle {
+  border-radius: 100%;
+  padding: 0;
+  aspect-ratio: 1/1;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -8,6 +8,7 @@ export const i18nResources = {
       searchMenuTitleSortDir: "Sort Results",
       searchMenuItemSortDirAsc: "Ascending",
       searchMenuItemSortDirDesc: "Descending",
+      matchDialogBanner: "It's a Match!",
     },
   },
 };

@@ -1,13 +1,14 @@
 import React from "react";
 import { Dog } from "../../api/data";
 
+import { FaHeart, FaLocationDot } from "react-icons/fa6";
+
 import "./dog-card.css";
-import { FaHeart } from "react-icons/fa6";
 
 interface Props {
   dog: Dog;
-  isFavorite: boolean;
-  onClick: () => void;
+  isFavorite?: boolean;
+  onClick?: () => void;
 }
 
 /**
@@ -17,7 +18,9 @@ const Card: React.FC<Props> = ({ dog, isFavorite, onClick }) => {
   return (
     <div
       {...{ onClick }}
-      className={`dog-card ${isFavorite ? "favorite" : ""}`}
+      className={`dog-card ${isFavorite ? "favorite" : ""} ${
+        !onClick ? "static" : ""
+      }`}
       // TODO: Is there a better way to merge multiple background images than
       // this?
       style={{
@@ -29,7 +32,9 @@ const Card: React.FC<Props> = ({ dog, isFavorite, onClick }) => {
         {dog.name} <span className="dog-age">{dog.age}</span>
       </h2>
       <span className="dog-breed">{dog.breed}</span>
-      <span className="dog-zip">{dog.zip_code}</span>
+      <span className="dog-zip">
+        <FaLocationDot /> {dog.zip_code}
+      </span>
     </div>
   );
 };

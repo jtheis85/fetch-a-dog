@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import api from "../../api/api";
 import SearchResultsPage from "./SearchResultsPage";
-import { SearchResults } from "../../api/data";
+import { Dog, SearchResults } from "../../api/data";
 
 import "./search.css";
 import SearchHeader from "./SearchHeader";
 import SearchFooter from "./SearchFooter";
+import DialogDogMatch from "./DialogDogMatch";
 
 interface Props {}
 
@@ -18,6 +19,7 @@ const ViewSearch: React.FC<Props> = ({}) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isSortDesc, setIsSortDesc] = useState(false);
   const [favorites, setFavorites] = useState<{ [dogId: string]: Boolean }>({});
+  const [matchedDog, setMatchedDog] = useState<Dog | null>(null);
 
   const pageSize = 25;
   const sortBy = "breed";
@@ -54,8 +56,12 @@ const ViewSearch: React.FC<Props> = ({}) => {
           const res = await api.matchDog(favoritesList);
           const json: { match: string } = await res.json();
 
-          // TODO: Actually display the match in a user-friendly way
-          alert(json.match);
+          const resDogs = await api.getDogDetails([json.match]);
+          const jsonDogs = await resDogs.json();
+
+          // TODO: Be a little more careful here. There should only be one dog
+          // in the results, but maybe handle if there aren't for some reason?
+          setMatchedDog(jsonDogs[0]);
         }}
       />
       <SearchResultsPage
@@ -68,6 +74,7 @@ const ViewSearch: React.FC<Props> = ({}) => {
           })
         }
       />
+      <DialogDogMatch key={matchedDog?.id} dog={matchedDog} />
       <SearchFooter {...{ currentPage, pageCount, setCurrentPage }} />
     </div>
   );
