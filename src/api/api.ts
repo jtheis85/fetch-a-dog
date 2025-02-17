@@ -4,6 +4,17 @@ const HEADER_CONTENT_TYPE_JSON = {
   "Content-Type": "application/json",
 };
 
+/**
+ * Your browser will automatically send this cookie with all successive
+ * credentialed requests to the API. Note that you will need to pass a
+ * config option in order to send credentials (cookies) with each request.
+ */
+const CREDENTIALS_INCLUDE: {
+  credentials: RequestCredentials;
+} = {
+  credentials: "include",
+};
+
 // const METHOD_GET = "GET";
 const METHOD_POST = "POST";
 
@@ -25,12 +36,20 @@ export class Api {
       headers: HEADER_CONTENT_TYPE_JSON,
       method: METHOD_POST,
       body: JSON.stringify(body),
-      /**
-       * Your browser will automatically send this cookie with all successive
-       * credentialed requests to the API. Note that you will need to pass a
-       * config option in order to send credentials (cookies) with each request.
-       */
-      credentials: "include",
+      ...CREDENTIALS_INCLUDE,
+    });
+
+    return res;
+  }
+
+  /**
+   * Hit this endpoint to end a user’s session. This will invalidate the auth
+   * cookie.
+   */
+  async logout() {
+    const res = await fetch(`${HOST}/auth/logout`, {
+      method: METHOD_POST,
+      ...CREDENTIALS_INCLUDE,
     });
 
     return res;

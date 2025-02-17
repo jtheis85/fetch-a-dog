@@ -23,9 +23,9 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Login and Auth
 
-- [ ] Once a user is successfully authenticated, they should be brought to a search page where they can browse available dogs.
-- [x] Then, you should use this information to hit our login endpoint to authenticate with our service
 - [x] You first should have users enter their name and email on a login screen.
+- [x] Then, you should use this information to hit our login endpoint to authenticate with our service
+- [x] Once a user is successfully authenticated, they should be brought to a search page where they can browse available dogs.
 
 ## Search
 
@@ -53,8 +53,15 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 # TODO
 
+## Login
+
 - [ ] Validate login form field values
   - [ ] Name length requirements and character restrictions
   - [ ] Valid email regex
 - [ ] Handle login errors
 - [ ] Handle auth expiration
+- [ ] Loading indicator for sign in
+
+## Search
+
+- [ ] Handle log out errors

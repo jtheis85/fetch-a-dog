@@ -3,7 +3,8 @@ export const i18nResources = {
     translation: {
       loginFieldName: "Name",
       loginFieldEmail: "E-mail",
-      loginFieldSignIn: "Sign in",
+      loginButtonSignIn: "Sign in",
+      searchButtonSignOut: "Sign out",
     },
   },
 };

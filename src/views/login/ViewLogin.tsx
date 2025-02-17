@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "wouter";
 import logo from "../../assets/Logo.png";
 import api from "../../api/api";
 
@@ -7,10 +8,15 @@ import "./login.css";
 
 interface Props {}
 
+/**
+ * The login view for the app.
+ */
 const ViewLogin: React.FC<Props> = ({}) => {
+  const [, navigate] = useLocation();
+  const { t } = useTranslation();
+
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
-  const { t } = useTranslation();
 
   return (
     <div className="view-login">
@@ -36,11 +42,11 @@ const ViewLogin: React.FC<Props> = ({}) => {
             const res = await api.login({ name: userName, email });
 
             if (res.ok) {
-              alert("Logged in!");
+              navigate("/search");
             }
           }}
         >
-          {t("loginFieldSignIn")}
+          {t("loginButtonSignIn")}
         </button>
       </div>
     </div>
