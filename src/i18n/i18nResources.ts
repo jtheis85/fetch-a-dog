@@ -5,6 +5,9 @@ export const i18nResources = {
       loginFieldEmail: "E-mail",
       loginButtonSignIn: "Sign in",
       searchButtonSignOut: "Sign out",
+      searchMenuTitleSortDir: "Sort Results",
+      searchMenuItemSortDirAsc: "Ascending",
+      searchMenuItemSortDirDesc: "Descending",
     },
   },
 };

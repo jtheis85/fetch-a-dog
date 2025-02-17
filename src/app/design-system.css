@@ -3,6 +3,7 @@ in here, just variables for consisten use elsewhere. */
 
 :root {
   --color-background-primary: hsl(128, 19%, 17%);
+  --color-background-nav: hsl(128, 19%, 20%);
   --color-brand-primary: hsl(60 69% 66%);
 
   --color-text: hsl(60 0% 90%);

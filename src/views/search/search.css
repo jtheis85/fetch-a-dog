@@ -21,6 +21,11 @@
       margin-right: var(--padding-16);
     }
 
+    .left {
+      display: flex;
+      gap: var(--padding-4);
+    }
+
     .right {
       /* Move to the upper right corner */
       margin-left: auto;

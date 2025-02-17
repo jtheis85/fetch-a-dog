@@ -13,21 +13,31 @@ interface Props {}
  */
 const ViewSearch: React.FC<Props> = ({}) => {
   const [currentPageDogIds, setCurrentPageDogIds] = useState<string[]>([]);
+  const [isSortDesc, setIsSortDesc] = useState(false);
+
+  const sortBy = "breed";
 
   const searchDogs = async () => {
     // TEMP: Just get the first page for now to test
-    const resSearch = await api.searchDogs({ sort: "breed", sortDir: "asc" });
+    const resSearch = await api.searchDogs({
+      sort: sortBy,
+      sortDir: isSortDesc ? "desc" : "asc",
+    });
     const jsonSearch: SearchResults = await resSearch.json();
     setCurrentPageDogIds(jsonSearch.resultIds);
   };
 
   useEffect(() => {
     searchDogs();
-  }, []);
+  }, [isSortDesc]);
 
   return (
     <div className="view-search">
-      <SearchHeader />
+      <SearchHeader
+        {...{ isSortDesc, sortBy }}
+        isSortNumeric={false}
+        onChangeSortDir={(sortDir) => setIsSortDesc(sortDir === "desc")}
+      />
       <SearchResultsPage dogIds={currentPageDogIds} />
     </div>
   );

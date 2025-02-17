@@ -32,7 +32,7 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 - [ ] Users must be able to filter by breed
 - [ ] Results should be paginated
 - [x] Results should be sorted alphabetically by breed by default.
-- [ ] Users should be able to modify this sort to be ascending or descending.
+- [x] Users should be able to modify this sort to be ascending or descending.
 - [x] All fields of the Dog object (except for id) must be presented in some form
 
 ## Favorites and Matching
