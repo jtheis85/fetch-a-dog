@@ -12,7 +12,6 @@
 
   .popover {
     position: absolute;
-    right: 0;
     z-index: 3;
 
     display: flex;
@@ -59,5 +58,12 @@
   }
   &.popover-direction-bottom .popover {
     top: calc(100% + var(--padding-12));
+  }
+
+  &.popover-align-side-left .popover {
+    left: 0;
+  }
+  &.popover-align-side-right .popover {
+    right: 0;
   }
 }

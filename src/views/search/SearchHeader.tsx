@@ -1,11 +1,15 @@
 import React from "react";
+
+import { FaHeart } from "react-icons/fa6";
+
 import logo from "../../assets/Logo.png";
+import logoMobile from "../../assets/Logo-Mobile.png";
+
 import MenuSortDirection, {
   Props as PropsMenuSortDirection,
 } from "./MenuSortDirection";
-
-import { FaHeart } from "react-icons/fa6";
 import MenuAccount from "./MenuAccount";
+import { useTranslation } from "react-i18next";
 
 interface Props extends PropsMenuSortDirection {
   favorites: { [dogId: string]: Boolean };
@@ -23,9 +27,11 @@ const SearchHeader: React.FC<Props> = ({
   onChangeSortDir,
   onRequestMatch,
 }) => {
+  const { t } = useTranslation();
   return (
     <header>
       <img className="logo" src={logo} />
+      <img className="logo-mobile" src={logoMobile} />
       <div className="left">
         <MenuSortDirection
           {...{
@@ -42,7 +48,11 @@ const SearchHeader: React.FC<Props> = ({
           onClick={onRequestMatch}
         >
           <>
-            <FaHeart /> Find my Match!
+            <FaHeart />{" "}
+            <label className="responsive-wide">{t("searchButtonMatch")}</label>
+            <label className="responsive-narrow">
+              {t("searchButtonMatchNarrow")}
+            </label>
           </>
         </button>
         <MenuAccount />

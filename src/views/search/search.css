@@ -17,9 +17,13 @@
     background-color: var(--color-background-nav);
     border-bottom: var(--border-weight-4) solid var(--color-box-shadow);
 
-    .logo {
+    .logo,
+    .logo-mobile {
       height: var(--header-height);
       margin-right: var(--padding-16);
+    }
+    .logo-mobile {
+      display: none;
     }
 
     .left {
@@ -39,6 +43,14 @@
       display: flex;
       align-items: center;
       gap: var(--padding-8);
+
+      label.responsive-wide {
+        display: initial;
+      }
+
+      label.responsive-narrow {
+        display: none;
+      }
     }
   }
 
@@ -84,6 +96,12 @@
       /* Bigger photo to make the dialog pop */
       height: calc(1.5 * var(--card-height));
       width: calc(1.5 * var(--card-width));
+
+      /* Not on mobile though, that's too big and spills over the edges */
+      @media (width < 600px) {
+        height: var(--card-height);
+        width: var(--card-width);
+      }
     }
   }
 
@@ -117,6 +135,30 @@
         border-radius: var(--border-radius-32) var(--border-radius-16);
         font-size: var(--font-size-16);
       }
+    }
+  }
+}
+
+@media (width < 600px) {
+  .view-search > header {
+    .logo {
+      display: none;
+    }
+
+    .logo-mobile {
+      display: initial;
+    }
+
+    .button-match {
+      padding: var(--padding-8) var(--padding-16);
+    }
+
+    .button-match label.responsive-wide {
+      display: none;
+    }
+
+    .button-match label.responsive-narrow {
+      display: initial;
     }
   }
 }

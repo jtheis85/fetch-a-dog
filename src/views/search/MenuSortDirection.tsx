@@ -34,6 +34,7 @@ const MenuSortDirection: React.FC<Props> = ({
 
   return (
     <MenuButton
+      menuAlignSide="popover-align-side-left"
       menuTop={
         <label style={{ whiteSpace: "nowrap" }}>
           {t("searchMenuTitleSortDir")}

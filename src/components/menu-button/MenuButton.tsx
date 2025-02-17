@@ -22,6 +22,10 @@ interface Props extends PropsWithChildren {
    */
   menuDirection?: "popover-direction-bottom" | "popover-direction-top";
   /**
+   * which side the menu should appear on relative to the button
+   */
+  menuAlignSide?: "popover-align-side-left" | "popover-align-side-right";
+  /**
    * Arbitrary content to display at the top of the menu before the options
    */
   menuTop?: ReactNode;
@@ -52,6 +56,7 @@ const MenuButton: React.FC<Props> = ({
   isHideOnSelect = true,
   isShowPopoverControlled,
   setIsShowPopoverControlled,
+  menuAlignSide: menuSide = "popover-align-side-right",
   menuDirection = "popover-direction-bottom",
   menuOptionContents,
   menuTop,
@@ -72,7 +77,7 @@ const MenuButton: React.FC<Props> = ({
       : setIsShowPopoverLocalState;
   return (
     <button
-      className={`menu-button ${menuDirection} ${className}`}
+      className={`menu-button ${menuDirection} ${menuSide} ${className}`}
       {...{ style }}
       onClick={() => setIsShowPopover(!isShowPopover)}
     >

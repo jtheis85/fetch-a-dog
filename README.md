@@ -64,6 +64,7 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Search
 
+- [ ] Fix match dialog scrolling with the screen
 - [ ] Handle log out errors
 - [ ] Handle individual image loading state
 - [ ] Add first/last page buttons

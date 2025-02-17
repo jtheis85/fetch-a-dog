@@ -4,6 +4,8 @@ export const i18nResources = {
       loginFieldName: "Name",
       loginFieldEmail: "E-mail",
       loginButtonSignIn: "Sign in",
+      searchButtonMatch: "Fetch my Match!",
+      searchButtonMatchNarrow: "Match",
       searchMenuItemSignOut: "Sign out",
       searchMenuTitleSortDir: "Sort Results",
       searchMenuItemSortDirAsc: "Ascending",
