@@ -19,11 +19,7 @@ This repo is part of the interview process at [Fetch](https://fetch.com/) for th
 
 # TODO
 
-These are item that weren't explicitly in the requirements (see below), but I've identified either as issues to fix, or enhancements to make. This isn't an exhausive list. Items will be added as I run across them, and checked off as I finish them.
-
-## Prod Server
-
-- [ ] (ERRORS) Configure nginx to not balk at app routes (/login, /search)
+These are item that weren't explicitly in the requirements (see below), but I've identified either as issues to fix, or enhancements to make. This isn't an exhausive list. Items will be added as I run across them, and checked off and removed as I finish them.
 
 ## Login
 
@@ -43,8 +39,6 @@ These are item that weren't explicitly in the requirements (see below), but I've
 - [ ] (UX) Add numbered page buttons (similar to "< Goooooooogle >")
 - [ ] (UX) Add a page size option menu
 - [ ] (UX) Integrate search into querystring for link/shareability
-- [x] (FIX) Match dialog scrolling with the screen
-- [x] (UX) Turn logout button into an Account button with logout as a menu option to avoid misclicks
 
 ## Style
 
