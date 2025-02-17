@@ -1,5 +1,6 @@
 :root {
   --header-height: 36px;
+  --footer-height: 36px;
 
   --card-height: 300px;
   --card-width: 400px;
@@ -41,5 +42,48 @@
     grid-template-columns: repeat(auto-fit, var(--card-width));
     padding: var(--padding-16) var(--padding-8);
     gap: var(--padding-8);
+
+    /* Otherwise the sticky footer rides up when there's no results */
+    /* Tried making the footer absolute instead of sticky, but that caused it to
+    ride up when scrolling results, so this was easier. */
+    --total-header-height: var(--header-height) - 3 * var(--padding-4);
+    --total-footer-height: var(--header-height) - 2 * var(--padding-4) -
+      var(--padding-2);
+    min-height: calc(
+      100vh - var(--total-header-height) - var(--total-footer-height)
+    );
+  }
+
+  > footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-4);
+    height: calc(var(--footer-height) + 2 * var(--padding-4));
+    position: sticky;
+    z-index: 2;
+    bottom: 0;
+    background-color: var(--color-background-nav);
+    border-top: var(--border-weight-2) solid black;
+
+    .pagination {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--padding-4);
+
+      .button-type-pagination {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--footer-height);
+        aspect-ratio: 1.25/1;
+        border-radius: var(--border-radius-32) var(--border-radius-16);
+        font-size: var(--font-size-16);
+      }
+    }
   }
 }
