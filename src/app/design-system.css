@@ -1,0 +1,18 @@
+/* This file is for design system tokens only. There should be no actual styles
+in here, just variables for consisten use elsewhere. */
+
+:root {
+  --color-background-primary: hsl(128, 19%, 17%);
+  --color-brand-primary: hsl(60 69% 66%);
+
+  --color-text: hsl(60 0% 90%);
+  --color-text-dark: hsl(60 0% 10%);
+
+  --font-size-12: 12px;
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+  --font-size-48: 48px;
+  --font-size-64: 64px;
+}

@@ -1,0 +1,15 @@
+/* This file is for app-wide styles only and should be kept clear of any 
+component-specific or view-specific styles. */
+
+:root {
+  background-color: var(--color-background-primary);
+  color: var(--color-text);
+  font-family: Roboto;
+  font-size: var(--font-size-16);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
