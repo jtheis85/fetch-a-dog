@@ -14,6 +14,8 @@ interface Props {}
  * The primary search interface for the app
  */
 const ViewSearch: React.FC<Props> = ({}) => {
+  // TODO: This has gotten a bit ugly. Should consider a reducer or possibly
+  // Redux for managing all this state.
   const [currentPageDogIds, setCurrentPageDogIds] = useState<string[]>([]);
   const [searchTotal, setSearchTotal] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
@@ -21,15 +23,23 @@ const ViewSearch: React.FC<Props> = ({}) => {
   const [isSortDesc, setIsSortDesc] = useState(false);
   const [favorites, setFavorites] = useState<{ [dogId: string]: Boolean }>({});
   const [matchedDog, setMatchedDog] = useState<Dog | null>(null);
+  const [isShowBreedPopover, setIsShowBreedPopover] = useState(false);
+  const [breedInclusion, setBreedInclusion] = useState<{
+    [breedName: string]: Boolean;
+  }>({});
 
   const pageSize = 25;
   const pageCount = Math.ceil(searchTotal / pageSize);
   const favoritesList = Object.keys(favorites).filter((key) => favorites[key]);
   const canMatch = favoritesList.length > 0;
+  const includedBreeds = Object.keys(breedInclusion).filter(
+    (key) => breedInclusion[key]
+  );
 
   const searchDogs = async () => {
     // TEMP: Just get the first page for now to test
     const resSearch = await api.searchDogs({
+      ...(includedBreeds.length > 0 ? { breeds: includedBreeds } : {}),
       size: pageSize,
       from: currentPage * pageSize,
       sort: sortBy,
@@ -44,12 +54,22 @@ const ViewSearch: React.FC<Props> = ({}) => {
 
   useEffect(() => {
     searchDogs();
-  }, [currentPage, isSortDesc, pageSize, sortBy]);
+  }, [breedInclusion, currentPage, isSortDesc, pageSize, sortBy]);
 
   return (
     <div className="view-search">
       <SearchHeader
-        {...{ canMatch, favorites, isSortDesc, sortBy }}
+        {...{
+          breedInclusion,
+          canMatch,
+          favorites,
+          includedBreeds,
+          isShowBreedPopover,
+          isSortDesc,
+          setBreedInclusion,
+          setIsShowBreedPopover,
+          sortBy,
+        }}
         isSortNumeric={sortBy === "age"}
         onChangeSortBy={(sortBy) =>
           setSortBy(sortBy as "breed" | "age" | "name")

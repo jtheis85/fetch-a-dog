@@ -57,7 +57,7 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Search
 
-- [ ] Users must be able to filter by breed
+- [x] Users must be able to filter by breed
 - [x] Results should be paginated
 - [x] Results should be sorted alphabetically by breed by default.
 - [x] Users should be able to modify this sort to be ascending or descending.

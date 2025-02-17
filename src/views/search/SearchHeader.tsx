@@ -11,9 +11,11 @@ import MenuSortDirection, {
 import MenuSortBy, { Props as PropsMenuSortBy } from "./MenuSortBy";
 import MenuAccount from "./MenuAccount";
 import { useTranslation } from "react-i18next";
+import MenuFilter, { Props as PropsMenuFilter } from "./MenuFilter";
 
 interface Props
-  extends Omit<PropsMenuSortDir, "onChange">,
+  extends PropsMenuFilter,
+    Omit<PropsMenuSortDir, "onChange">,
     Omit<PropsMenuSortBy, "onChange"> {
   favorites: { [dogId: string]: Boolean };
   canMatch: boolean;
@@ -39,6 +41,12 @@ const SearchHeader: React.FC<Props> = ({
   onChangeSortDir,
   onRequestMatch,
   sortBy,
+
+  breedInclusion,
+  includedBreeds,
+  isShowBreedPopover,
+  setBreedInclusion,
+  setIsShowBreedPopover,
 }) => {
   const { t } = useTranslation();
   return (
@@ -46,7 +54,15 @@ const SearchHeader: React.FC<Props> = ({
       <img className="logo" src={logo} />
       <img className="logo-mobile" src={logoMobile} />
       <div className="left">
-        <MenuSortBy {...{ sortBy }} onChange={onChangeSortBy} />
+        <MenuFilter
+          {...{
+            breedInclusion,
+            includedBreeds,
+            isShowBreedPopover,
+            setBreedInclusion,
+            setIsShowBreedPopover,
+          }}
+        />
         <MenuSortDirection
           {...{
             isSortDesc,
@@ -54,6 +70,7 @@ const SearchHeader: React.FC<Props> = ({
           }}
           onChange={onChangeSortDir}
         />
+        <MenuSortBy {...{ sortBy }} onChange={onChangeSortBy} />
       </div>
       <div className="right">
         <button

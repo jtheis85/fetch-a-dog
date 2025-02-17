@@ -56,6 +56,18 @@ export class Api {
   }
 
   /**
+   * Returns an array of all possible breed names.
+   */
+  async dogBreeds() {
+    const res = fetch(`${HOST}/dogs/breeds`, {
+      method: METHOD_GET,
+      ...CREDENTIALS_INCLUDE,
+    });
+
+    return res;
+  }
+
+  /**
    * The maximum total number of dogs that will be matched by a single query is
    * 10,000.
    */
