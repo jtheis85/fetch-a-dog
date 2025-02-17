@@ -6,7 +6,7 @@ This repo is part of the interview process at [Fetch](https://fetch.com/) for th
 
 # Accessing the App on the Internet
 
-TBD
+- Visit [joetheis.me/fetch-a-dog](https://joetheis.me/fetch-a-dog/) to interact with the app live on the internet
 
 # Running the App Locally
 
@@ -44,8 +44,8 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Additional Requirements
 
-- [ ] Your app should be hosted on the internet where it can be visited and interacted with
 - [ ] Please provide a link to your deployed site and your public code repository via Greenhouse.
+- [x] Your app should be hosted on the internet where it can be visited and interacted with
 - [x] You should include any necessary documentation to run your site locally
 - [x] Your source code should be stored in a git repository and hosted on the internet (i.e. GitHub)
 
