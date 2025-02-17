@@ -21,6 +21,11 @@ This repo is part of the interview process at [Fetch](https://fetch.com/) for th
 
 These are item that weren't explicitly in the requirements (see below), but I've identified either as issues to fix, or enhancements to make. This isn't an exhausive list. Items will be added as I run across them, and checked off and removed as I finish them.
 
+## General
+
+- [ ] (UX) Scrollbar color
+- [ ] (UX) Implement "root close" behavior for menu popovers, where clicking outside them dismisses them.
+
 ## Login
 
 - [ ] (UX) Validate login form field values
@@ -39,10 +44,6 @@ These are item that weren't explicitly in the requirements (see below), but I've
 - [ ] (UX) Add numbered page buttons (similar to "< Goooooooogle >")
 - [ ] (UX) Add a page size option menu
 - [ ] (UX) Integrate search into querystring for link/shareability
-
-## Style
-
-- [ ] (UX) Scrollbar color
 
 # Requirements
 

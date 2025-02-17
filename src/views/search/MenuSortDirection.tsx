@@ -1,5 +1,7 @@
 import React from "react";
-import MenuButton from "../../components/menu-button/MenuButton";
+import MenuButton, {
+  Props as PropsMenuButton,
+} from "../../components/menu-button/MenuButton";
 import { useTranslation } from "react-i18next";
 
 import { FaSortAlphaDown } from "react-icons/fa";
@@ -7,7 +9,7 @@ import { FaSortAlphaUpAlt } from "react-icons/fa";
 import { FaSortNumericDown } from "react-icons/fa";
 import { FaSortNumericUpAlt } from "react-icons/fa";
 
-export interface Props {
+export interface Props extends Pick<PropsMenuButton, "onChange"> {
   /**
    * Whether the current sort direction is descending
    */
@@ -16,10 +18,6 @@ export interface Props {
    * Whether the current sort is numeric or not
    */
   isSortNumeric: boolean;
-  /**
-   * Callback for when the sort direction changes
-   */
-  onChangeSortDir: (sortBy: string) => void;
 }
 
 /**
@@ -28,7 +26,7 @@ export interface Props {
 const MenuSortDirection: React.FC<Props> = ({
   isSortDesc,
   isSortNumeric,
-  onChangeSortDir,
+  onChange,
 }) => {
   const { t } = useTranslation();
 
@@ -55,7 +53,7 @@ const MenuSortDirection: React.FC<Props> = ({
         ),
       }}
       toggledKeys={[isSortDesc ? "desc" : "asc"]}
-      onChange={onChangeSortDir}
+      {...{ onChange }}
     >
       {isSortDesc ? (
         isSortNumeric ? (

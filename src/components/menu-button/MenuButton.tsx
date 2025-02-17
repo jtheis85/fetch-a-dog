@@ -3,7 +3,7 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa6";
 
 import "./menu-button.css";
 
-interface Props extends PropsWithChildren {
+export interface Props extends PropsWithChildren {
   className?: string;
   style?: React.CSSProperties;
 

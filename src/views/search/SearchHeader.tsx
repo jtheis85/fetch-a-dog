@@ -6,15 +6,26 @@ import logo from "../../assets/Logo.png";
 import logoMobile from "../../assets/Logo-Mobile.png";
 
 import MenuSortDirection, {
-  Props as PropsMenuSortDirection,
+  Props as PropsMenuSortDir,
 } from "./MenuSortDirection";
+import MenuSortBy, { Props as PropsMenuSortBy } from "./MenuSortBy";
 import MenuAccount from "./MenuAccount";
 import { useTranslation } from "react-i18next";
 
-interface Props extends PropsMenuSortDirection {
+interface Props
+  extends Omit<PropsMenuSortDir, "onChange">,
+    Omit<PropsMenuSortBy, "onChange"> {
   favorites: { [dogId: string]: Boolean };
   canMatch: boolean;
   onRequestMatch: () => void;
+  /**
+   * Callback for when the sort type changes
+   */
+  onChangeSortBy: PropsMenuSortBy["onChange"];
+  /**
+   * Callback for when the sort direction changes
+   */
+  onChangeSortDir: PropsMenuSortDir["onChange"];
 }
 
 /**
@@ -24,8 +35,10 @@ const SearchHeader: React.FC<Props> = ({
   canMatch,
   isSortDesc,
   isSortNumeric,
+  onChangeSortBy,
   onChangeSortDir,
   onRequestMatch,
+  sortBy,
 }) => {
   const { t } = useTranslation();
   return (
@@ -33,12 +46,13 @@ const SearchHeader: React.FC<Props> = ({
       <img className="logo" src={logo} />
       <img className="logo-mobile" src={logoMobile} />
       <div className="left">
+        <MenuSortBy {...{ sortBy }} onChange={onChangeSortBy} />
         <MenuSortDirection
           {...{
             isSortDesc,
             isSortNumeric,
-            onChangeSortDir,
           }}
+          onChange={onChangeSortDir}
         />
       </div>
       <div className="right">

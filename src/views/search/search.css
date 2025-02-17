@@ -43,14 +43,6 @@
       display: flex;
       align-items: center;
       gap: var(--padding-8);
-
-      label.responsive-wide {
-        display: initial;
-      }
-
-      label.responsive-narrow {
-        display: none;
-      }
     }
   }
 
@@ -139,7 +131,25 @@
   }
 }
 
+@media (width >= 600px) {
+  label.responsive-wide {
+    display: initial;
+  }
+
+  label.responsive-narrow {
+    display: none;
+  }
+}
+
 @media (width < 600px) {
+  label.responsive-wide {
+    display: none;
+  }
+
+  label.responsive-narrow {
+    display: initial;
+  }
+
   .view-search > header {
     .logo {
       display: none;
@@ -151,14 +161,6 @@
 
     .button-match {
       padding: var(--padding-8) var(--padding-16);
-    }
-
-    .button-match label.responsive-wide {
-      display: none;
-    }
-
-    .button-match label.responsive-narrow {
-      display: initial;
     }
   }
 }
