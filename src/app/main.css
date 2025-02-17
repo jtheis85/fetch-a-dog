@@ -4,7 +4,7 @@ component-specific or view-specific styles. */
 :root {
   background-color: var(--color-background-primary);
   color: var(--color-text);
-  font-family: Roboto;
+  font-family: var(--font-family-roboto);
   font-size: var(--font-size-16);
 }
 

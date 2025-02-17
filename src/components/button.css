@@ -15,7 +15,7 @@ button {
   border: var(--border-weight-2) solid var(--color-transparent);
   padding: var(--padding-4) var(--padding-8);
 
-  font-family: Roboto;
+  font-family: var(--font-family-roboto);
   font-size: var(--font-size-16);
   font-weight: var(--font-weight-900);
 
@@ -32,7 +32,7 @@ button {
 
   &:disabled {
     cursor: initial;
-    opacity: 0.33;
+    opacity: var(--opacity-33);
   }
 }
 

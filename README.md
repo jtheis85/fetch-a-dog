@@ -65,3 +65,4 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 ## Search
 
 - [ ] Handle log out errors
+- [ ] Handle individual image loading state

@@ -8,6 +8,9 @@ in here, just variables for consisten use elsewhere. */
   --color-text: hsl(60 0% 90%);
   --color-text-dark: hsl(60 0% 10%);
 
+  --font-family-luckiest-guy: "Luckiest Guy";
+  --font-family-roboto: Roboto;
+
   --font-size-12: 12px;
   --font-size-16: 16px;
   --font-size-20: 20px;
@@ -47,8 +50,19 @@ in here, just variables for consisten use elsewhere. */
   work, as it turns elements into ellipses. */
   --border-radius-max: 9999px;
 
-  --box-shadow-solid-0: 0px 0px 0 0 #000000;
-  --box-shadow-solid-4: 4px 4px 0 0 #000000;
-  --box-shadow-solid-8: 8px 8px 0 0 #000000;
-  --box-shadow-solid-16: 16px 16px 0 0 #000000;
+  --color-box-shadow: #000000;
+  --box-shadow-solid-0: 0px 0px 0 0 var(--color-box-shadow);
+  --box-shadow-solid-4: 4px 4px 0 0 var(--color-box-shadow);
+  --box-shadow-solid-8: 8px 8px 0 0 var(--color-box-shadow);
+  --box-shadow-solid-16: 16px 16px 0 0 var(--color-box-shadow);
+
+  --box-shadow-inner-vignette: inset 0 0 32px 0 hsl(0 0% 0% / 50%);
+
+  --opacity-0: 0;
+  --opacity-25: 0.25;
+  --opacity-33: 0.33;
+  --opacity-50: 0.5;
+  --opacity-67: 0.67;
+  --opacity-75: 0.75;
+  --opacity-100: 1;
 }

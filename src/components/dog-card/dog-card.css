@@ -1,0 +1,87 @@
+.dog-card {
+  cursor: pointer;
+  /* Prevents text selection on the card itself, which looks ugly and can happen
+  if the user clicks too quickly */
+  user-select: none;
+
+  width: 400px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  box-shadow: var(--box-shadow-inner-vignette), var(--box-shadow-solid-0);
+  border-radius: var(--border-radius-8);
+  padding: var(--padding-8) var(--padding-16);
+
+  background-size: cover;
+  color: var(--color-text-dark);
+
+  transition: all 0.2s ease-out;
+  outline: var(--border-weight-4) solid transparent;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.2s ease-out, z-index 0s 0s;
+    z-index: 1;
+
+    outline: var(--border-weight-4) solid white;
+    box-shadow: var(--box-shadow-inner-vignette), var(--box-shadow-solid-8);
+  }
+
+  &:active {
+    transform: scale(1.1);
+    transition: all 0.2s ease-out, z-index 0s 0s;
+    z-index: 1;
+
+    box-shadow: var(--box-shadow-inner-vignette), var(--box-shadow-solid-8);
+    outline: var(--border-weight-32) solid var(--color-brand-primary);
+  }
+
+  .dog-name {
+    /* Move over just a touch to account for the weight of the font */
+    margin-left: calc(0.5 * var(--padding-8));
+
+    font-family: var(--font-family-luckiest-guy);
+    font-weight: var(--font-weight-100);
+    font-size: var(--font-size-48);
+
+    -webkit-text-stroke: var(--border-weight-8) var(--color-box-shadow);
+    text-stroke: var(--border-weight-8) var(--color-box-shadow);
+    paint-order: stroke fill;
+
+    color: var(--color-text);
+  }
+
+  .dog-age {
+    padding-left: var(--padding-8);
+    font-family: var(--font-family-roboto);
+    font-weight: var(--font-weight-900);
+    font-size: var(--font-size-32);
+    -webkit-text-stroke: var(--border-weight-8) var(--color-box-shadow);
+    text-stroke: var(--border-weight-8) var(--color-box-shadow);
+
+    color: var(--color-text);
+    opacity: var(--opacity-67);
+  }
+
+  .dog-age::after {
+    content: "y";
+    font-size: var(--font-size-16);
+    margin-left: var(--padding-4);
+  }
+
+  .dog-breed {
+    text-transform: uppercase;
+    font-size: var(--font-size-20);
+    font-weight: var(--font-weight-900);
+    color: var(--color-text-dark);
+  }
+
+  .dog-zip {
+    font-weight: var(--font-weight-900);
+    font-size: var(--font-size-12);
+    opacity: var(--opacity-50);
+  }
+}

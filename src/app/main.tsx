@@ -10,6 +10,7 @@ import "../components/button.css";
 import "../components/input.css";
 
 import "@fontsource/roboto/index.css";
+import "@fontsource/luckiest-guy/index.css";
 
 /**
  * This file is the main entry point for the app. It should be kept clear of
