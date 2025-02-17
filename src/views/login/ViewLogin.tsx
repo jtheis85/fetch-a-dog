@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import logo from "../../assets/Logo.png";
+import api from "../../api/api";
 
 import "./login.css";
-import { useTranslation } from "react-i18next";
 
 interface Props {}
 
@@ -28,7 +29,17 @@ const ViewLogin: React.FC<Props> = ({}) => {
             <input value={email} onChange={(e) => setEmail(e.target.value)} />
           </label>
         </div>
-        <button disabled={!userName || !email} className="primary">
+        <button
+          disabled={!userName || !email}
+          className="primary"
+          onClick={async () => {
+            const res = await api.login({ name: userName, email });
+
+            if (res.ok) {
+              alert("Logged in!");
+            }
+          }}
+        >
           {t("loginFieldSignIn")}
         </button>
       </div>

@@ -23,8 +23,8 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Login and Auth
 
-- [ ] Then, you should use this information to hit our login endpoint to authenticate with our service
 - [ ] Once a user is successfully authenticated, they should be brought to a search page where they can browse available dogs.
+- [x] Then, you should use this information to hit our login endpoint to authenticate with our service
 - [x] You first should have users enter their name and email on a login screen.
 
 ## Search
@@ -50,3 +50,11 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 - [x] Your source code should be stored in a git repository and hosted on the internet (i.e. GitHub)
 
 > As for everything else, you have free rein, so get creative! We strongly encourage you to go beyond the minimum requirements to build something that showcases your strengths.
+
+# TODO
+
+- [ ] Validate login form field values
+  - [ ] Name length requirements and character restrictions
+  - [ ] Valid email regex
+- [ ] Handle login errors
+- [ ] Handle auth expiration
