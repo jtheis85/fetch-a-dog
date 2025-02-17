@@ -23,9 +23,9 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Login and Auth
 
-- [ ] You first should have users enter their name and email on a login screen.
 - [ ] Then, you should use this information to hit our login endpoint to authenticate with our service
 - [ ] Once a user is successfully authenticated, they should be brought to a search page where they can browse available dogs.
+- [x] You first should have users enter their name and email on a login screen.
 
 ## Search
 
