@@ -13,7 +13,7 @@ button {
 
   border-radius: var(--border-radius-32) var(--border-radius-8);
   border: var(--border-weight-2) solid var(--color-transparent);
-  padding: var(--padding-4) var(--padding-8);
+  padding: var(--padding-8) var(--padding-32);
 
   font-family: var(--font-family-roboto);
   font-size: var(--font-size-16);

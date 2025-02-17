@@ -1,9 +1,35 @@
 :root {
+  --header-height: 36px;
+
   --card-height: 300px;
   --card-width: 400px;
 }
 
 .view-search {
+  > header {
+    display: flex;
+    align-items: center;
+    padding: var(--padding-4);
+    position: sticky;
+    z-index: 2;
+    top: 0;
+    background-color: var(--color-background-nav);
+    border-bottom: var(--border-weight-4) solid var(--color-box-shadow);
+
+    .logo {
+      height: var(--header-height);
+      margin-right: var(--padding-16);
+    }
+
+    .right {
+      /* Move to the upper right corner */
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: var(--padding-4);
+    }
+  }
+
   section.results {
     display: grid;
     justify-content: center;
