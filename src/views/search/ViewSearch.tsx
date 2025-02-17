@@ -20,7 +20,7 @@ const ViewSearch: React.FC<Props> = ({}) => {
 
   const searchDogs = async () => {
     // TEMP: Just get the first page for now to test
-    const resSearch = await api.searchDogs();
+    const resSearch = await api.searchDogs({ sort: "breed", sortDir: "asc" });
     const jsonSearch: SearchResults = await resSearch.json();
     setCurrentPageDogIds(jsonSearch.resultIds);
   };

@@ -59,8 +59,41 @@ export class Api {
    * The maximum total number of dogs that will be matched by a single query is
    * 10,000.
    */
-  async searchDogs() {
+  async searchDogs({
+    breeds,
+    from,
+    sort,
+    size,
+    sortDir,
+  }: {
+    breeds?: string[];
+    /**
+     * a cursor to be used when paginating results
+     */
+    from?: number;
+    /**
+     * the number of results to return; defaults to 25 if omitted
+     */
+    size?: number;
+    sort?: "breed" | "name" | "age";
+    sortDir?: "asc" | "desc";
+  }) {
     let url = new URL(`${HOST}/dogs/search`);
+
+    if (breeds) {
+      for (const breed of breeds ?? []) {
+        url.searchParams.append("breeds", breed);
+      }
+    }
+    if (from) {
+      url.searchParams.append("from", from.toString());
+    }
+    if (size) {
+      url.searchParams.append("size", size.toString());
+    }
+    if (sort) {
+      url.searchParams.append("sort", `${sort}:${sortDir ?? "asc"}`);
+    }
 
     const res = fetch(url, {
       method: METHOD_GET,
