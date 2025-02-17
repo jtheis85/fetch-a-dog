@@ -17,6 +17,35 @@ This repo is part of the interview process at [Fetch](https://fetch.com/) for th
 - This will build and run the dev server
 - The terminal will display a link like `Local:http://localhost:5173/`. Click it to open the app.
 
+# TODO
+
+These are item that weren't explicitly in the requirements (see below), but I've identified either as issues to fix, or enhancements to make. This isn't an exhausive list. Items will be added as I run across them, and checked off as I finish them.
+
+## Login
+
+- [ ] (UX) Validate login form field values
+  - [ ] Name length requirements and character restrictions
+  - [ ] Valid email regex
+- [ ] (ERRORS) Handle login errors
+- [ ] (UX) Handle auth expiration
+- [ ] (UX) Loading indicator for sign in
+
+## Search
+
+- [ ] (FIX) Match dialog scrolling with the screen
+- [ ] (FIX) Space between grid rows when results don't fill full page (e.g. zoom out)
+- [ ] (ERRORS) Handle API errors
+- [ ] (UX) Handle individual image loading state
+- [ ] (UX) Add first/last page buttons
+- [ ] (UX) Add numbered page buttons (similar to "< Goooooooogle >")
+- [ ] (UX) Add a page size option menu
+- [ ] (UX) Integrate search into querystring for link/shareability
+- [x] (UX) Turn logout button into an Account button with logout as a menu option to avoid misclicks
+
+## Style
+
+- [ ] (UX) Scrollbar color
+
 # Requirements
 
 Full requirements and documentation is available at [frontend-take-home.fetch.com](https://frontend-take-home.fetch.com/)
@@ -50,30 +79,3 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 - [x] Your source code should be stored in a git repository and hosted on the internet (i.e. GitHub)
 
 > As for everything else, you have free rein, so get creative! We strongly encourage you to go beyond the minimum requirements to build something that showcases your strengths.
-
-# TODO
-
-## Login
-
-- [ ] Validate login form field values
-  - [ ] Name length requirements and character restrictions
-  - [ ] Valid email regex
-- [ ] Handle login errors
-- [ ] Handle auth expiration
-- [ ] Loading indicator for sign in
-
-## Search
-
-- [ ] Fix match dialog scrolling with the screen
-- [ ] Handle log out errors
-- [ ] Handle individual image loading state
-- [ ] Add first/last page buttons
-- [ ] Add numbered page buttons (similar to "< Goooooooogle >")
-- [ ] Add a page size option menu
-- [ ] Integrate search into querystring for link/shareability
-- [ ] Fix space between grid rows when results don't fill full page (e.g. zoom out)
-- [x] Turn logout button into an Account button with logout as a menu option to avoid misclicks
-
-## Style
-
-- [ ] Scrollbar color
