@@ -65,12 +65,13 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 ## Search
 
 - [ ] Handle log out errors
-- [ ] Turn logout button into an Account button with logout as a menu option to avoid misclicks
 - [ ] Handle individual image loading state
 - [ ] Add first/last page buttons
 - [ ] Add numbered page buttons (similar to "< Goooooooogle >")
+- [ ] Add a page size option menu
 - [ ] Integrate search into querystring for link/shareability
 - [ ] Fix space between grid rows when results don't fill full page (e.g. zoom out)
+- [x] Turn logout button into an Account button with logout as a menu option to avoid misclicks
 
 ## Style
 

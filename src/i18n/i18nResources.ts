@@ -4,11 +4,11 @@ export const i18nResources = {
       loginFieldName: "Name",
       loginFieldEmail: "E-mail",
       loginButtonSignIn: "Sign in",
-      searchButtonSignOut: "Sign out",
+      searchMenuItemSignOut: "Sign out",
       searchMenuTitleSortDir: "Sort Results",
       searchMenuItemSortDirAsc: "Ascending",
       searchMenuItemSortDirDesc: "Descending",
-      matchDialogBanner: "It's a Match!",
+      searchMatchDialogBanner: "It's a Match!",
     },
   },
 };

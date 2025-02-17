@@ -24,7 +24,7 @@ const DialogDogMatch: React.FC<Props> = ({ dog }) => {
       isOpen={isOpen}
       onClose={() => setIsOpen(false)}
     >
-      <h2 className="banner">{t("matchDialogBanner")}</h2>
+      <h2 className="banner">{t("searchMatchDialogBanner")}</h2>
       {dog && <DogCard dog={dog} />}
     </Dialog>
   );

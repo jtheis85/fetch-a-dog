@@ -42,7 +42,7 @@ interface Props extends PropsWithChildren {
   /**
    * Which options are currently selected
    */
-  toggledKeys: string[];
+  toggledKeys?: string[];
 }
 
 const MenuButton: React.FC<Props> = ({
@@ -57,7 +57,7 @@ const MenuButton: React.FC<Props> = ({
   menuTop,
   onChange,
   children,
-  toggledKeys,
+  toggledKeys = [],
 }) => {
   // Setup local state to be used if not provided with state from the parent.
   // Ignored if parent state is provided.
