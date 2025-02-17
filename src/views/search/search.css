@@ -34,6 +34,12 @@
       align-items: center;
       gap: var(--padding-4);
     }
+
+    .button-match {
+      display: flex;
+      align-items: center;
+      gap: var(--padding-8);
+    }
   }
 
   section.results {

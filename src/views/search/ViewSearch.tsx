@@ -18,10 +18,12 @@ const ViewSearch: React.FC<Props> = ({}) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isSortDesc, setIsSortDesc] = useState(false);
   const [favorites, setFavorites] = useState<{ [dogId: string]: Boolean }>({});
-  const pageSize = 25;
-  const pageCount = Math.ceil(searchTotal / pageSize);
 
+  const pageSize = 25;
   const sortBy = "breed";
+  const pageCount = Math.ceil(searchTotal / pageSize);
+  const favoritesList = Object.keys(favorites).filter((key) => favorites[key]);
+  const canMatch = favoritesList.length > 0;
 
   const searchDogs = async () => {
     // TEMP: Just get the first page for now to test
@@ -45,9 +47,16 @@ const ViewSearch: React.FC<Props> = ({}) => {
   return (
     <div className="view-search">
       <SearchHeader
-        {...{ isSortDesc, sortBy }}
+        {...{ canMatch, favorites, isSortDesc, sortBy }}
         isSortNumeric={false}
         onChangeSortDir={(sortDir) => setIsSortDesc(sortDir === "desc")}
+        onRequestMatch={async () => {
+          const res = await api.matchDog(favoritesList);
+          const json: { match: string } = await res.json();
+
+          // TODO: Actually display the match in a user-friendly way
+          alert(json.match);
+        }}
       />
       <SearchResultsPage
         dogIds={currentPageDogIds}

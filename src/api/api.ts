@@ -119,6 +119,21 @@ export class Api {
 
     return res;
   }
+
+  /**
+   * This endpoint will select a single ID from the provided list of dog IDs.
+   * This ID represents the dog the user has been matched with for adoption.
+   */
+  async matchDog(body: string[]) {
+    const res = await fetch(`${HOST}/dogs/match`, {
+      headers: HEADER_CONTENT_TYPE_JSON,
+      method: METHOD_POST,
+      body: JSON.stringify(body),
+      ...CREDENTIALS_INCLUDE,
+    });
+
+    return res;
+  }
 }
 
 const api = new Api();
