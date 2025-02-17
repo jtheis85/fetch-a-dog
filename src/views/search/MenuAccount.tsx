@@ -1,11 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { navigate } from "wouter/use-hash-location";
 
 import api from "../../api/api";
 import MenuButton from "../../components/menu-button/MenuButton";
 
 import { FaUser } from "react-icons/fa6";
+import { useLocation } from "wouter";
 
 interface Props {}
 
@@ -15,6 +15,7 @@ interface Props {}
  */
 const MenuAccount: React.FC<Props> = ({}) => {
   const { t } = useTranslation();
+  const [, navigate] = useLocation();
 
   return (
     <MenuButton
