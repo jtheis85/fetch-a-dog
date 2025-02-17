@@ -14,6 +14,7 @@ interface Props {}
 const ViewSearch: React.FC<Props> = ({}) => {
   const [currentPageDogIds, setCurrentPageDogIds] = useState<string[]>([]);
   const [isSortDesc, setIsSortDesc] = useState(false);
+  const [favorites, setFavorites] = useState<{ [dogId: string]: Boolean }>({});
 
   const sortBy = "breed";
 
@@ -38,7 +39,16 @@ const ViewSearch: React.FC<Props> = ({}) => {
         isSortNumeric={false}
         onChangeSortDir={(sortDir) => setIsSortDesc(sortDir === "desc")}
       />
-      <SearchResultsPage dogIds={currentPageDogIds} />
+      <SearchResultsPage
+        dogIds={currentPageDogIds}
+        {...{ favorites }}
+        toggleFavorite={(dogId) =>
+          setFavorites({
+            ...favorites,
+            [dogId]: !favorites[dogId],
+          })
+        }
+      />
     </div>
   );
 };

@@ -1,4 +1,6 @@
 .dog-card {
+  --color-card-outline: white;
+
   cursor: pointer;
   /* Prevents text selection on the card itself, which looks ugly and can happen
   if the user clicks too quickly */
@@ -26,7 +28,7 @@
     transition: all 0.2s ease-out, z-index 0s 0s;
     z-index: 1;
 
-    outline: var(--border-weight-4) solid white;
+    outline: var(--border-weight-4) solid var(--color-card-outline);
     box-shadow: var(--box-shadow-inner-vignette), var(--box-shadow-solid-8);
   }
 
@@ -37,6 +39,40 @@
 
     box-shadow: var(--box-shadow-inner-vignette), var(--box-shadow-solid-8);
     outline: var(--border-weight-32) solid var(--color-brand-primary);
+  }
+
+  &.favorite:active {
+    outline: var(--border-weight-16) solid var(--color-card-outline);
+  }
+
+  .icon-favorite {
+    position: absolute;
+    top: var(--padding-8);
+    right: var(--padding-8);
+    font-size: var(--font-size-32);
+    opacity: var(--opacity-0);
+  }
+
+  &:hover .icon-favorite {
+    opacity: var(--opacity-67);
+    color: var(--color-text);
+  }
+
+  &.favorite {
+    transform: scale(0.95);
+    outline: var(--border-weight-4) solid var(--color-brand-primary);
+    outline-offset: -2px;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  &.favorite .icon-favorite {
+    opacity: 1;
+    filter: drop-shadow(1px 1px var(--color-background-primary))
+      drop-shadow(-1px -1px var(--color-background-primary))
+      drop-shadow(-1px 1px var(--color-background-primary))
+      drop-shadow(1px -1px var(--color-background-primary));
+    color: var(--color-brand-primary);
   }
 
   .dog-name {
