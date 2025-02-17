@@ -1,0 +1,46 @@
+.view-login {
+  /* Setup the view to allow the content to be centered */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .logo {
+    /* Position the logo relative to the login panel. That way the panel is 
+    actually centered in the view, and the logo is floating above it.*/
+    position: absolute;
+    bottom: calc(100% + var(--padding-32));
+    left: -100%;
+    transform: translate(50%, 0);
+  }
+  @media (width < 600px) {
+    .logo {
+      /* Kind of annoying that changing the width also seems to require changes
+      to the centering but it is what it is. */
+      width: 100%;
+      left: 0;
+      transform: initial;
+    }
+  }
+
+  .panel-login {
+    /* Relative so that the logo can be absolute positioned */
+    position: relative;
+
+    box-shadow: var(--box-shadow-solid-16);
+    border: var(--border-weight-2) solid var(--color-brand-primary);
+    border-radius: var(--border-radius-32) var(--border-radius-16);
+
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-32);
+    gap: var(--padding-32);
+
+    .fields {
+      display: flex;
+      flex-direction: column;
+      gap: var(--padding-8);
+    }
+  }
+}
