@@ -32,8 +32,8 @@ These are item that weren't explicitly in the requirements (see below), but I've
   - [ ] Name length requirements and character restrictions
   - [ ] Valid email regex
 - [ ] (ERRORS) Handle login errors
-- [ ] (UX) Handle auth expiration
 - [ ] (UX) Loading indicator for sign in
+- [x] (UX) Handle auth expiration
 
 ## Search
 

@@ -1,3 +1,5 @@
+import { navigate } from "wouter/use-browser-location";
+
 const HOST = "https://frontend-take-home-service.fetch.com";
 
 const HEADER_CONTENT_TYPE_JSON = {
@@ -39,6 +41,8 @@ export class Api {
       ...CREDENTIALS_INCLUDE,
     });
 
+    this.loginRedirectForUnauth(res);
+
     return res;
   }
 
@@ -52,6 +56,8 @@ export class Api {
       ...CREDENTIALS_INCLUDE,
     });
 
+    this.loginRedirectForUnauth(res);
+
     return res;
   }
 
@@ -59,10 +65,12 @@ export class Api {
    * Returns an array of all possible breed names.
    */
   async dogBreeds() {
-    const res = fetch(`${HOST}/dogs/breeds`, {
+    const res = await fetch(`${HOST}/dogs/breeds`, {
       method: METHOD_GET,
       ...CREDENTIALS_INCLUDE,
     });
+
+    this.loginRedirectForUnauth(res);
 
     return res;
   }
@@ -107,10 +115,12 @@ export class Api {
       url.searchParams.append("sort", `${sort}:${sortDir ?? "asc"}`);
     }
 
-    const res = fetch(url, {
+    const res = await fetch(url, {
       method: METHOD_GET,
       ...CREDENTIALS_INCLUDE,
     });
+
+    this.loginRedirectForUnauth(res);
 
     return res;
   }
@@ -129,6 +139,8 @@ export class Api {
       ...CREDENTIALS_INCLUDE,
     });
 
+    this.loginRedirectForUnauth(res);
+
     return res;
   }
 
@@ -144,7 +156,22 @@ export class Api {
       ...CREDENTIALS_INCLUDE,
     });
 
+    this.loginRedirectForUnauth(res);
+
     return res;
+  }
+
+  private loginRedirectForUnauth(res: Response) {
+    if (res.status === 401) {
+      // The app currently gets deployed to joetheis.me/fetch-a-dog, so this
+      // base needs to be added. If it ever gets its own domain, this can be
+      // removed.
+      // Note that the base added in the Router component in App is not
+      // sufficient. Probably because this is being called outside of the
+      // context of a component, or maybe at least not within the context of
+      // that Router component.
+      navigate("/fetch-a-dog/login");
+    }
   }
 }
 
