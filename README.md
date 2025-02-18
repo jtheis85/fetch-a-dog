@@ -74,7 +74,7 @@ Full requirements and documentation is available at [frontend-take-home.fetch.co
 
 ## Additional Requirements
 
-- [ ] Please provide a link to your deployed site and your public code repository via Greenhouse.
+- [x] Please provide a link to your deployed site and your public code repository via Greenhouse.
 - [x] Your app should be hosted on the internet where it can be visited and interacted with
 - [x] You should include any necessary documentation to run your site locally
 - [x] Your source code should be stored in a git repository and hosted on the internet (i.e. GitHub)
